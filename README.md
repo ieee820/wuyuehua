@@ -1,6 +1,6 @@
 # wuyuehua
 
-# this is a project on kaggle competition
+#  a project just for fun
 
 add pic test
 ![test pic](pic/test.png)
