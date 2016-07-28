@@ -38,7 +38,7 @@ print train_phone.ix[0:5,:]
 print train_phone.shape
 ```
 
-![test pic](/pic/train_phone.png)
+![说明pic](/pic/train_phone.png)
 
 1、性别特征 Gender：
 
