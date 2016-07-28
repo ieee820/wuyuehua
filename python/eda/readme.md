@@ -51,7 +51,7 @@ _=p.set_xlabel('Gender'),p.set_ylabel('Count')
 plt.show()
 ```
 
-![test pic](pic/basic1.png)
+![test pic](/pic/basic1.png)
 
 2、群组特征 Group:
 #train : group
@@ -62,7 +62,7 @@ p=train_phone.group.value_counts().sort_index().plot(kind='bar',figsize=(15,6),r
 _=p.set_xlabel('Group'),p.set_ylabel('Count')
 plt.show()
 ```
-![test pic](pic/basic2.png)
+![test pic]/(pic/basic2.png)
 
 
 3、手机品牌特征 Phone_brand：
@@ -107,7 +107,7 @@ a_ = p.set_ylabel("Group"), p.set_xlabel("Count")
 #plt.show()
 ```
 
-![test pic](pic/basic3.png)
+![test pic](/pic/basic3.png)
 
 #可以看每一个品牌下，不同用户群的占比：
 ```
@@ -121,7 +121,7 @@ a_ = p.set_ylabel("Phone_brand"), p.set_xlabel("Count")
 plt.show()
 ```
 
-![test pic](pic/basic4.png)
+![test pic](/pic/basic4.png)
 
 5、Phone_brand vs gender
 #不同品牌的性别比重
@@ -140,6 +140,6 @@ a_ = p.set_ylabel("Phone_brand"), p.set_xlabel("Count")
 plt.show()
 ```
 
-![test pic](pic/basic5.png)
+![test pic](/pic/basic5.png)
 
 #不同性别下 ，各个品牌的比重
