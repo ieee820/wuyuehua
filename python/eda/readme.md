@@ -40,7 +40,7 @@ print train_phone.shape
 
 ![说明pic](/pic/train_phone.png)
 
-1、性别特征 Gender：
+##1、性别特征 Gender：
 
 ```
 #train : gender
@@ -53,7 +53,7 @@ plt.show()
 
 ![test pic](/pic/basic1.png)
 
-2、群组特征 Group:
+##2、群组特征 Group:
 train : group
 ```
 x=train_phone.group.value_counts().sort_index()
@@ -66,7 +66,7 @@ plt.show()
 ![test pic](/pic/basic2.png)
 
 
-3、手机品牌特征 Phone_brand：
+##3、手机品牌特征 Phone_brand：
 
 ```
 #phone_brand
@@ -87,7 +87,7 @@ print phone_brand_counts_prop1
 
 
 
-4、Phone_brand vs Group
+##4、Phone_brand vs Group
 
 将使用次数排序不在前十的手机品牌分组为‘Others’
 
@@ -101,7 +101,7 @@ print train_phone1.ix[0:5,:]
 ![test pic](/pic/train_phone1.png)
 
 
-#可以看每一个用户分组中，手机品牌使用占比情况：
+可以看每一个用户分组中，手机品牌使用占比情况：
 ```
 data =train_phone1.groupby(["group", "phone_brand"]).count()["device_id"].unstack().copy(deep = True)
 print data
@@ -114,7 +114,7 @@ a_ = p.set_ylabel("Group"), p.set_xlabel("Count")
 
 ![test pic](/pic/basic3.png)
 
-#可以看每一个品牌下，不同用户群的占比：
+可以看每一个品牌下，不同用户群的占比：
 ```
 data =train_phone1.groupby(["phone_brand", "group"]).count()["device_id"].unstack().copy(deep = True)
 print data
@@ -128,10 +128,9 @@ plt.show()
 
 ![test pic](/pic/basic4.png)
 
-5、Phone_brand vs gender
-#不同品牌的性别比重
+##5、Phone_brand vs gender
 
-## Phone_brand VS Gender
+不同品牌的性别比重
 ```
 data =train_phone1.groupby(["phone_brand", "gender"]).count()["device_id"].unstack().copy(deep = True)
 x= data.div(data.sum(axis = 1), axis = 0)
@@ -147,6 +146,22 @@ plt.show()
 ![test pic](/pic/phonebrand_gender.png)
 ![test pic](/pic/basic5.png)
 
-#不同性别下 ，各个品牌的比重
-
+不同性别下 ，各个品牌的比重
+```
+## Phone_brand VS Gender
+name1=list(name)
+name1.append("Others")##将前十名以后的手机品牌设为‘Others’
+data =train_phone1.groupby(["gender", "phone_brand"]).count()["device_id"].unstack().copy(deep = True)
+data1=pd.DataFrame(data,columns=name1)
+x= data1.div(data1.sum(axis = 1), axis = 0)
+print data1
+print x
+p=x.plot.barh(stacked = True, rot = 1, figsize = (12, 8), width = .4)
+_ = p.set_xticklabels(""), p.legend(fontsize =10., loc = "upper center", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Gender"), p.set_xlabel("proportion of phone brands")
+plt.show()
+```
+![test pic](/pic/gender_phonebrand.png)
+![test pic](/pic/gender_phonebrand_prop.png)
+![test pic](/pic/gender_phonebrand1.png)
 
