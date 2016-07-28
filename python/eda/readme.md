@@ -54,7 +54,7 @@ plt.show()
 ![test pic](/pic/basic1.png)
 
 2、群组特征 Group:
-#train : group
+train : group
 ```
 x=train_phone.group.value_counts().sort_index()
 print x
@@ -80,7 +80,7 @@ print phone_brand_counts_prop1
 
 各手机品牌使用情况如下：
 ![test pic](/pic/phone_brand.png)
-![test pic](/pic/phone.png)
+
 按被使用次数进行排序后，计算器累计和：可以发现90%以上的人使用的手机集中前十个品牌。
 ![test pic](/pic/phone_brand_prop_cumsum.png)
 
