@@ -38,7 +38,7 @@ print train_phone.ix[0:5,:]
 print train_phone.shape
 ```
 
-
+![test pic](/pic/train_phone.png)
 
 1、性别特征 Gender：
 
@@ -62,6 +62,7 @@ p=train_phone.group.value_counts().sort_index().plot(kind='bar',figsize=(15,6),r
 _=p.set_xlabel('Group'),p.set_ylabel('Count')
 plt.show()
 ```
+![test pic](/pic/group.png)
 ![test pic](/pic/basic2.png)
 
 
@@ -78,9 +79,10 @@ print phone_brand_counts_prop1
 ```
 
 各手机品牌使用情况如下：
-
-
+![test pic](/pic/phone_brand.png)
+![test pic](/pic/phone.png)
 按被使用次数进行排序后，计算器累计和：可以发现90%以上的人使用的手机集中前十个品牌。
+![test pic](/pic/phone_brand_prop_cumsum.png)
 
 
 
@@ -96,6 +98,8 @@ name=phone_brand_counts_prop1.index[0:10]
 train_phone1.ix[train_phone1.phone_brand.isin(name)==False,'phone_brand']='Others'
 print train_phone1.ix[0:5,:]
 ```
+![test pic](/pic/train_phone1.png)
+
 
 #可以看每一个用户分组中，手机品牌使用占比情况：
 ```
@@ -106,6 +110,7 @@ _ = p.set_xticklabels(""), p.legend(fontsize = 12., loc = "right", ncol = 1, bor
 a_ = p.set_ylabel("Group"), p.set_xlabel("Count")
 #plt.show()
 ```
+![test pic](/pic/group_phonebrand.png)
 
 ![test pic](/pic/basic3.png)
 
@@ -139,7 +144,7 @@ _ = p.set_xticklabels(""), p.legend(fontsize =20., loc = "right", ncol = 1, bord
 a_ = p.set_ylabel("Phone_brand"), p.set_xlabel("Count")
 plt.show()
 ```
-
+![test pic](/pic/phonebrand_gender.png)
 ![test pic](/pic/basic5.png)
 
 #不同性别下 ，各个品牌的比重
