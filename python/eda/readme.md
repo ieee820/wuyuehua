@@ -79,6 +79,8 @@ print phone_brand_counts_prop1
 ```
 
 各手机品牌使用情况如下：
+
+
 ![test pic](/pic/phone_brand.png)
 
 按被使用次数进行排序后，计算器累计和：可以发现90%以上的人使用的手机集中前十个品牌。
@@ -161,7 +163,10 @@ _ = p.set_xticklabels(""), p.legend(fontsize =10., loc = "upper center", ncol = 
 a_ = p.set_ylabel("Gender"), p.set_xlabel("proportion of phone brands")
 plt.show()
 ```
+计数
 ![test pic](/pic/gender_phonebrand.png)
+比重
 ![test pic](/pic/gender_phonebrand_prop.png)
+条形图
 ![test pic](/pic/gender_phonebrand1.png)
 
