@@ -11,10 +11,10 @@ app_events=pd.read_csv('kaggledata/app_events.csv')
 app_labels=pd.read_csv('kaggledata/app_labels.csv')
 ```
 
-一、用户属性特征和手机品牌关系研究
+#一、用户属性特征和手机品牌关系研究
 
 ```
-Gender_age_train & phone_brand_device_model à train_phone
+##merge Gender_age_train & phone_brand_device_model  to train_phone
 ##merge gender_age_train and phone_brand_device_model as train_phone
 phone_brand_device_model_1=phone_brand_device_model.drop_duplicates()
 ###change phone_brand language from chinese to english in phone_brand_device_model
