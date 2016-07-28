@@ -62,7 +62,7 @@ p=train_phone.group.value_counts().sort_index().plot(kind='bar',figsize=(15,6),r
 _=p.set_xlabel('Group'),p.set_ylabel('Count')
 plt.show()
 ```
-![test pic]/(pic/basic2.png)
+![test pic](/pic/basic2.png)
 
 
 3、手机品牌特征 Phone_brand：
