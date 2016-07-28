@@ -143,3 +143,4 @@ plt.show()
 ![test pic](/pic/basic5.png)
 
 #不同性别下 ，各个品牌的比重
+
