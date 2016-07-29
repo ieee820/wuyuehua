@@ -166,13 +166,25 @@ plt.show()
 计数
 
 ![test pic](/pic/gender_phonebrand.png)
+
 比重
 
 ![test pic](/pic/gender_phonebrand_prop.png)
+
 条形图
 
 ![test pic](/pic/gender_phonebrand1.png)
 
 PS：视觉上看男女在使用的手机品牌分布上差异不大
 这个和我之前在论坛看到的别人的结论不太一样，有可能我过程有问题，请大牛帮我看一下~~
+
+来，吃两块饼：
+
+![test pic](/pic/pie_phone_brand_female.png)
+![test pic](/pic/pie_phone_brand_male.png)
+
+也可证明 但从Gender 和phone_brand上看，男女差异不大。后续加上年龄，可能会有差异~
+
+
+
 
