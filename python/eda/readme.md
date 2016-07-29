@@ -261,4 +261,32 @@ plt.show()
 
 ![test pic](/pic/male_phone_brand_age.png)
 
+```
+data =train_phone1_female.groupby(["group", "phone_brand"]).count()["device_id"].unstack().copy(deep = True)
+x=data.div(data.sum(axis=1),axis=0)
+x1=x.T
+print x
+print x1
+p=x1.plot.bar(stacked = False, rot = 0, figsize = (15, 8), width = .5)
+_ = p.legend(fontsize = 12., loc = "upper center", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Ratio"), p.set_xlabel("Phone Brands")
+plt.title('Ratio of Female Age Group on Phone Brands')
+plt.show()
+
+data =train_phone1_male.groupby(["group", "phone_brand"]).count()["device_id"].unstack().copy(deep = True)
+x=data.div(data.sum(axis=1),axis=0)
+x1=x.T
+print x
+print x1
+p=x1.plot.bar(stacked = False, rot = 0, figsize = (15, 8), width = .5)
+_ = p.legend(fontsize = 12., loc = "upper center", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Ratio"), p.set_xlabel("Phone Brands")
+plt.title('Ratio of Male Age Group on Phone Brands')
+plt.show()
+
+```
+
+![test pic](/pic/female_ratio_age_phone_brand.png)
+
+![test pic](/pic/male_ratio_age_phone_brand.png)
 
