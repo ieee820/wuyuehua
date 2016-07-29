@@ -53,6 +53,24 @@ plt.show()
 
 ![test pic](/pic/basic1.png)
 
+
+##2、年龄特征 Age
+```
+x=train_phone1.ix[train_phone1.gender=='F','group'].value_counts().sort_index()
+x1=x/sum(x)
+print x1
+p=x1.plot(kind='bar',figsize=(15,6),rot=0)
+_=p.set_xlabel('Group'),p.set_ylabel('Ratio')
+plt.title('Female Age Distribution')
+plt.show()
+
+```
+
+![test pic](/pic/female_age.png)
+
+![test pic](/pic/male_age.png)
+
+
 ##2、群组特征 Group:
 train : group
 ```
