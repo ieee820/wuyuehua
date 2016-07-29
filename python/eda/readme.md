@@ -179,6 +179,25 @@ PS：视觉上看男女在使用的手机品牌分布上差异不大
 这个和我之前在论坛看到的别人的结论不太一样，有可能我过程有问题，请大牛帮我看一下~~
 
 来，吃两块饼：
+```
+name1 = list(name)
+name1.append("Others")
+data = train_phone1.groupby(["gender", "phone_brand"]).count()["device_id"].unstack().copy(deep=True)
+data1 = pd.DataFrame(data, columns=name1)
+x = data1.div(data1.sum(axis=1), axis=0)
+
+female_data = np.array(data1.ix['F', :])
+colors=['pink','coral','blue','orange','green']
+p = plt.pie(female_data, labels=name1, colors=colors,autopct='%1.1f%%')
+plt.title('Phone brands used by Female')
+plt.show()
+
+male_data = np.array(data1.ix['M', :])
+colors=['pink','coral','blue','orange','green']
+p = plt.pie(male_data, labels=name1, colors=colors,autopct='%1.1f%%')
+plt.title('Phone brands used by Male')
+plt.show()
+```
 
 ![test pic](/pic/pie_phone_brand_female.png)
 ![test pic](/pic/pie_phone_brand_male.png)
