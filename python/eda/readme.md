@@ -206,4 +206,59 @@ plt.show()
 
 
 
+##6、Age vs Gender vs Phone_brand
+
+```
+##
+train_phone1_female=train_phone1.ix[train_phone1.gender=='F',:]
+train_phone1_male=train_phone1.ix[train_phone1.gender=='M',:]
+
+data =train_phone1_female.groupby(["phone_brand", "group"]).count()["device_id"].unstack().copy(deep = True)
+print data
+x=data.div(data.sum(axis=1),axis=0)
+p=x.plot.bar(stacked = False, rot = 0, figsize = (15, 8), width = .5)
+_ = p.legend(fontsize = 12., loc = "upper right", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Count"), p.set_xlabel("Phone_brand")
+plt.title('Female Age Distribution on Each Phone Brands')
+plt.show()
+
+data =train_phone1_male.groupby(["phone_brand", "group"]).count()["device_id"].unstack().copy(deep = True)
+print data
+x=data.div(data.sum(axis=1),axis=0)
+p=x.plot.bar(stacked = False, rot = 0, figsize = (15, 8), width = .5)
+_ = p.legend(fontsize = 12., loc = "upper right", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Count"), p.set_xlabel("Phone_brand")
+plt.title('male Age Distribution on Each Phone Brands')
+plt.show()
+```
+
+![test pic](/pic/female_age_distribution_on_phone_brands.png)
+
+![test pic](/pic/male_age_distribution_on_phone_brands.png)
+
+```
+data =train_phone1_female.groupby(["group", "phone_brand"]).count()["device_id"].unstack().copy(deep = True)
+print data
+x=data.div(data.sum(axis=1),axis=0)
+p=x.plot.bar(stacked = False, rot = 0, figsize = (15, 8), width = .5)
+_ = p.legend(fontsize = 12., loc = "upper right", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Count"), p.set_xlabel("Female Age Group")
+plt.title('Distribution of Phone Brands on each Female Age Group')
+plt.show()
+
+data =train_phone1_male.groupby(["group", "phone_brand"]).count()["device_id"].unstack().copy(deep = True)
+print data
+x=data.div(data.sum(axis=1),axis=0)
+p=x.plot.bar(stacked = False, rot = 0, figsize = (15, 8), width = .5)
+_ = p.legend(fontsize = 12., loc = "upper right", ncol = 6, borderpad = -.15)
+a_ = p.set_ylabel("Count"), p.set_xlabel("Male Age Group")
+plt.title('Distribution of Phone Brands on each Male Age Group')
+plt.show()
+
+```
+
+![test pic](/pic/female_phone_brand_age.png)
+
+![test pic](/pic/male_phone_brand_age.png)
+
 
