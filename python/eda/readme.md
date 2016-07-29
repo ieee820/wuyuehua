@@ -71,7 +71,7 @@ plt.show()
 ![test pic](/pic/male_age.png)
 
 
-##2、群组特征 Group:
+##3、群组特征 Group:
 train : group
 ```
 x=train_phone.group.value_counts().sort_index()
@@ -84,7 +84,7 @@ plt.show()
 ![test pic](/pic/basic2.png)
 
 
-##3、手机品牌特征 Phone_brand：
+##4、手机品牌特征 Phone_brand：
 
 ```
 #phone_brand
@@ -107,7 +107,7 @@ print phone_brand_counts_prop1
 
 
 
-##4、Phone_brand vs Group
+##5、Phone_brand vs Group
 
 将使用次数排序不在前十的手机品牌分组为‘Others’
 
@@ -148,7 +148,7 @@ plt.show()
 
 ![test pic](/pic/basic4.png)
 
-##5、Phone_brand vs gender
+##6、Phone_brand vs gender
 
 不同品牌的性别比重
 ```
@@ -224,7 +224,7 @@ plt.show()
 
 
 
-##6、Age vs Gender vs Phone_brand
+##7、Age vs Gender vs Phone_brand
 
 ```
 ##
