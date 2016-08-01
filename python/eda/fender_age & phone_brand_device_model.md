@@ -64,7 +64,17 @@ _=p.set_xlabel('Group'),p.set_ylabel('Ratio')
 plt.title('Female Age Distribution')
 plt.show()
 
+
+x=train_phone1.ix[train_phone1.gender=='M','group'].value_counts().sort_index()
+x1=x/sum(x)
+print x1
+p=x1.plot(kind='bar',figsize=(15,6),rot=0)
+_=p.set_xlabel('Group'),p.set_ylabel('Ratio')
+plt.title('Male Age Distribution')
+plt.show()
+
 ```
+
 
 ![test pic](/pic/female_age.png)
 
