@@ -54,6 +54,8 @@ events1= pd.read_csv('kaggledata/events1.csv')
 ## when did people use their devices?
 events2=events1.copy(deep=True)
 events2['thour']=map(lambda x: '%02.f:00-%02.f:59 ' % (x,x),events1.thour)
+events2.to_csv('kaggledata/events2.csv')
+
 count=events2.thour.value_counts().sort_index()
 count_prop=count/count.sum()
 count_prop1=map(lambda x:'%.2f %%'%(x*100),count_prop)
@@ -62,11 +64,12 @@ count_prop2=pd.Series(count_prop1,index=count_prop.index)
 p=events2.thour.value_counts().sort_index().plot(kind='bar',figsize=(10,5),rot=0)
 _=p.set_xlabel('Hour'),p.set_ylabel('Count')
 plt.title('When did people use their devices in a day?')
-plt.xticks(rotation=45,fontsize=6.5,weight='bold')
+plt.xticks(rotation=45,fontsize=6,weight='bold')
 p1=p.twinx()
 p1.plot(p.get_xticks(),count_prop*100, linestyle='-', marker='.', linewidth=2.0,color='g')
 p1.set_ylabel('Proportion:(%)')
 plt.show()
+
 ```
 不同时段流量计数，如下：
 
@@ -79,3 +82,4 @@ plt.show()
 不同时段流量计数、百分比图，如下：
 
 ![test pic](/python/eda/pic_events/thour.png)
+
