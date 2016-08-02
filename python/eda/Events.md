@@ -70,12 +70,12 @@ plt.show()
 ```
 不同时段流量计数，如下：
 
-![test pic](/python/eda/pic_events/thout_data.png)
+![test pic](/python/eda/pic_events/thour_data.png)
 
 不同时段流量的百分比，如下：
 
-![test pic](/python/eda/pic_events/thout_data1.png)
+![test pic](/python/eda/pic_events/thour_data1.png)
 
 不同时段流量计数、百分比图，如下：
 
-![test pic](/python/eda/pic_events/thout.png)
+![test pic](/python/eda/pic_events/thour.png)
