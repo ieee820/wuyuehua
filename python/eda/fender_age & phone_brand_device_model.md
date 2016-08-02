@@ -318,3 +318,48 @@ plt.show()
 
 ![test pic](/pic/male_ratio_age_phone_brand.png)
 
+
+#产生各种表格的代码
+```
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+gender_age_train=pd.read_csv('kaggledata/gender_age_train.csv')
+gender_age_test=pd.read_csv('kaggledata/gender_age_test.csv')
+phone_brand_device_model=pd.read_csv('kaggledata/phone_brand_device_model.csv')
+events=pd.read_csv('kaggledata/events.csv')
+app_events=pd.read_csv('kaggledata/app_events.csv')
+app_labels=pd.read_csv('kaggledata/app_labels.csv')
+
+##merge Gender_age_train & phone_brand_device_model  to train_phone
+##merge gender_age_train and phone_brand_device_model as train_phone
+phone_brand_device_model_1=phone_brand_device_model.drop_duplicates()
+###change phone_brand language from chinese to english in phone_brand_device_model
+phone_brand_cn_en1=pd.read_csv('kaggledata/phone_brand_cn_en1.csv')
+##
+
+phone_brand_new1=pd.merge(pd.DataFrame(phone_brand_device_model_1.ix[:,'phone_brand']),phone_brand_cn_en1,on='phone_brand',how='left')
+phone_brand_device_model_2=phone_brand_device_model_1.copy(deep=True)
+phone_brand_device_model_2.ix[:,'phone_brand']=phone_brand_new1.ix[:,'phone_brand_en']
+##merge gender_age_train and phone_brand_device_model as train_phone
+train_phone=pd.merge(gender_age_train,phone_brand_device_model_2,on='device_id',how='left')
+
+
+phone_brand_device_model_2.to_csv('kaggledata/outputdata/phone_brand_device_model_2.csv')
+
+train_phone.to_csv('kaggledata/outputdata/train_phone.csv')
+
+#phone_brand
+phone_brand_counts=train_phone.phone_brand.value_counts()
+phone_brand_counts_prop=phone_brand_counts/sum(phone_brand_counts)
+phone_brand_counts_prop=np.array(phone_brand_counts_prop)
+phone_brand_counts_prop1=pd.Series(np.cumsum(phone_brand_counts_prop),index=phone_brand_counts.index)
+
+##change the left phone brands except the first 10 to 'else' class
+train_phone1=train_phone.copy(deep=True)
+name=phone_brand_counts_prop1.index[0:10]
+train_phone1.ix[train_phone1.phone_brand.isin(name)==False,'phone_brand']='Others'
+
+train_phone.to_csv('kaggledata/outputdata/train_phone1.csv')
+```
