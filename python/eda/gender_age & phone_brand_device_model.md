@@ -91,7 +91,7 @@ plt.show()
 ```
 ![test pic1](/python/eda/pic1/Phonebrand_group_train.png)
 
-![test pic1](/python/eda/pic1/Group_Phonebrand_train.png)
+![test pic1](/python/eda/pic1/Group_phonebrand_train.png)
 
 ![test pic1](/python/eda/pic1/Phonebrand_gender_train.png)
 
