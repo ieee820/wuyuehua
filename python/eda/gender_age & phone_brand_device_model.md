@@ -1,122 +1,4 @@
-```
-import pandas as pd
-import numpy as np
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-gender_age_train=pd.read_csv('kaggledata/gender_age_train.csv')
-gender_age_test=pd.read_csv('kaggledata/gender_age_test.csv')
-phone_brand_device_model=pd.read_csv('kaggledata/phone_brand_device_model.csv')
-events=pd.read_csv('kaggledata/events.csv')
-app_events=pd.read_csv('kaggledata/app_events.csv')
-app_labels=pd.read_csv('kaggledata/app_labels.csv')
-```
-
-#一、用户属性特征
-
-```
-##merge Gender_age_train & phone_brand_device_model  to train_phone
-##merge gender_age_train and phone_brand_device_model as train_phone
-phone_brand_device_model_1=phone_brand_device_model.drop_duplicates()
-###change phone_brand language from chinese to english in phone_brand_device_model
-phone_brand_cn=pd.read_csv('kaggledata/phone_brand_cn.csv')
-phone_brand_translate=pd.read_csv('kaggledata/phone_brand_translate.csv')
-phone_brand_cn_en=pd.merge(phone_brand_cn,phone_brand_translate,on='phone_brand_cn',how='left')
-phone_brand_cn_en.to_csv('kaggledata/phone_brand_cn_en.csv')
-phone_brand_cn_en1=pd.read_csv('kaggledata/phone_brand_cn_en1.csv')
-##
-phone_brand_device_model_1=phone_brand_device_model.drop_duplicates()
-phone_brand_new1=pd.merge(pd.DataFrame(phone_brand_device_model_1.ix[:,'phone_brand']),phone_brand_cn_en1,on='phone_brand',how='left')
-phone_brand_device_model_2=phone_brand_device_model_1.copy(deep=True)
-phone_brand_device_model_2.ix[:,'phone_brand']=phone_brand_new1.ix[:,'phone_brand_en']
-##merge gender_age_train and phone_brand_device_model as train_phone
-train_phone=pd.merge(gender_age_train,phone_brand_device_model_2,on='device_id',how='left')
-```
-
-train_phone表结构：
-```
-print train_phone.ix[0:5,:]
-print train_phone.shape
-```
-
-![说明pic](/pic/train_phone.png)
-
-##1、性别特征 Gender：
-
-```
-#train : gender
-x=train_phone.gender.value_counts()
-print x
-p=train_phone.gender.value_counts().plot(kind='bar',figsize=(15,6),rot=0)
-_=p.set_xlabel('Gender'),p.set_ylabel('Count')
-plt.show()
-```
-
-![test pic](/pic/basic1.png)
-
-
-##2、年龄特征 Age
-```
-x=train_phone1.ix[train_phone1.gender=='F','group'].value_counts().sort_index()
-x1=x/sum(x)
-print x1
-p=x1.plot(kind='bar',figsize=(15,6),rot=0)
-_=p.set_xlabel('Group'),p.set_ylabel('Ratio')
-plt.title('Female Age Distribution')
-plt.show()
-
-
-x=train_phone1.ix[train_phone1.gender=='M','group'].value_counts().sort_index()
-x1=x/sum(x)
-print x1
-p=x1.plot(kind='bar',figsize=(15,6),rot=0)
-_=p.set_xlabel('Group'),p.set_ylabel('Ratio')
-plt.title('Male Age Distribution')
-plt.show()
-
-```
-
-
-![test pic](/pic/female_age.png)
-
-![test pic](/pic/male_age.png)
-
-
-##3、群组特征 Group:
-train : group
-```
-x=train_phone.group.value_counts().sort_index()
-print x
-p=train_phone.group.value_counts().sort_index().plot(kind='bar',figsize=(15,6),rot=0)
-_=p.set_xlabel('Group'),p.set_ylabel('Count')
-plt.show()
-```
-![test pic](/pic/group.png)
-![test pic](/pic/basic2.png)
-
-
-##4、手机品牌特征 Phone_brand：
-
-```
-#phone_brand
-phone_brand_counts=train_phone.phone_brand.value_counts()
-phone_brand_counts_prop=phone_brand_counts/sum(phone_brand_counts)
-phone_brand_counts_prop=np.array(phone_brand_counts_prop)
-phone_brand_counts_prop1=pd.Series(np.cumsum(phone_brand_counts_prop),index=phone_brand_counts.index)
-print phone_brand_counts
-print phone_brand_counts_prop1
-```
-
-各手机品牌使用情况如下：
-
-
-![test pic](/pic/phone_brand.png)
-
-按被使用次数进行排序后，计算器累计和：可以发现90%以上的人使用的手机集中前十个品牌。
-![test pic](/pic/phone_brand_prop_cumsum.png)
-
-
-
-#二、用户属性特征 与 手机品牌
+#用户属性特征 与 手机品牌
 ```
 import pandas as pd
 import numpy as np
@@ -217,8 +99,12 @@ plt.show()
 
 ![test pic](/pic/pie_Phonebrand_gender_train.png)
 
-![test pic](/pic/pie_Phonebrand_gender_test.png)
+![test pic](/pic/pie_Phonebrand_male_train.png)
 
 ![test pic](/pic/Female_Phonebrand_Age_train.png)
 
 ![test pic](/pic/Male_Phonebrand_Age_train.png)
+
+![test pic](/pic/Female_Age_Phonebrand_train.png)
+
+![test pic](/pic/Male_Age_Phonebrand_train.png)
