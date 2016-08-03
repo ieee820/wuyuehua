@@ -89,22 +89,22 @@ plt.title('Male Age Distribution on Each Phone Brands')
 plt.show()
 
 ```
-![test pic](/pic/Phonebrand_group_train.png)
+![test pic](/pic1/Phonebrand_group_train.png)
 
-![test pic](/pic/Group_Phonebrand_train.png)
+![test pic](/pic1/Group_Phonebrand_train.png)
 
-![test pic](/pic/Phonebrand_gender_train.png)
+![test pic](/pic1/Phonebrand_gender_train.png)
 
-![test pic](/pic/Gender_phonebrand_train.png)
+![test pic](/pic1/Gender_phonebrand_train.png)
 
-![test pic](/pic/pie_Phonebrand_gender_train.png)
+![test pic](/pic1/pie_Phonebrand_gender_train.png)
 
-![test pic](/pic/pie_Phonebrand_male_train.png)
+![test pic](/pic1/pie_Phonebrand_male_train.png)
 
-![test pic](/pic/Female_Phonebrand_Age_train.png)
+![test pic](/pic1/Female_Phonebrand_Age_train.png)
 
-![test pic](/pic/Male_Phonebrand_Age_train.png)
+![test pic](/pic1/Male_Phonebrand_Age_train.png)
 
-![test pic](/pic/Female_Age_Phonebrand_train.png)
+![test pic](/pic1/Female_Age_Phonebrand_train.png)
 
-![test pic](/pic/Male_Age_Phonebrand_train.png)
+![test pic](/pic1/Male_Age_Phonebrand_train.png)
